@@ -460,7 +460,9 @@ extension JXPagingListContainerView: UICollectionViewDataSource, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         cell.contentView.backgroundColor = listCellBackgroundColor
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
-        let list = validListDict[indexPath.item]
+        let count = self.dataSource?.numberOfLists(in: self) ?? 0
+        let index = isJXRTL ? count - (indexPath.item + 1) : indexPath.item
+        let list = validListDict[index]
         if list != nil {
             if list is UIViewController {
                 list?.listView().frame = cell.contentView.bounds

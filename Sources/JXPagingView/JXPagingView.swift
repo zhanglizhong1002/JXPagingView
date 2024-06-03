@@ -8,6 +8,8 @@
 
 import UIKit
 
+let isJXRTL: Bool = UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft
+
 public protocol JXPagingViewDelegate: NSObjectProtocol {
     /// tableHeaderView的高度，因为内部需要比对判断，只能是整型数
     func tableHeaderViewHeight(in pagingView: JXPagingView) -> Int
